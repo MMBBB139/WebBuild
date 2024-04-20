@@ -1,5 +1,6 @@
-extends Control
+extends Node3D
 
+var fixed = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,4 +9,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Label.text = "Bombs Placed: "+ str(Global.bombsUsed)
+	pass
+
+func fix():
+	fixed = true
+
+func setpos(pos):
+	if(!fixed):
+		global_position = pos

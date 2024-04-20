@@ -1,4 +1,4 @@
-extends Control
+extends Node3D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -8,4 +8,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Label.text = "Bombs Placed: "+ str(Global.bombsUsed)
+	if Input.is_action_just_pressed("TestInput"):
+		explode()
+	
+	
+func explode():
+	$smoke.emitting = true
+	$AnimationPlayer.play("explode")
+	$explode.play()
+	
+	
